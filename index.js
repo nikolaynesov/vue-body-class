@@ -10,23 +10,30 @@ class VueBodyClassController {
         router.beforeEach((to, from, next) => {
 
             var parent              = router.options.routes;
-            let pathSplitted        = to.path.split('/');
+            let matched             = [];
             var additionalClassName = "";
-            let goDeep;
 
-            pathSplitted = pathSplitted.filter(function(n){ return (n) });
-            goDeep       = (to.path != '/' && to.path.length > 0 && pathSplitted.length > 0);
+            for (let index in to.matched) {
 
-            if (goDeep) {
+                let prev = matched.join('/');
 
-                for (var prop in pathSplitted) {
+                matched.push(to.matched[index].path
+                    .replace(/^\/|\/$/g, '')
+                    .replace(prev, '')
+                    .replace(/^\/|\/$/g, ''));
+
+            }
+
+            if (to.path != '/' && to.path.length > 0 && matched.length > 0) {
+
+                for (let index in matched) {
 
                     let data = parent.children ? parent.children : parent;
                     let found;
 
                     found = data.find((o)=> {
 
-                        return o.path == '/' + pathSplitted[prop] || o.path == pathSplitted[prop];
+                        return o.path.replace(/^\/|\/$/g, '') == matched[index];
 
                     });
 
