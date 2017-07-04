@@ -11,8 +11,10 @@ npm install vue-body-class --save
 
 ## Get started
 
+```js
 import vbclass from 'vue-body-class'
 Vue.use( vbclass, { router } )
+```
 
 ### Set Up classes
 
