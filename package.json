@@ -1,0 +1,23 @@
+{
+  "name": "vue-body-class",
+  "version": "1.0.0",
+  "description": "Control you body classes easily with vue-router",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikolaynesov/vue-body-class"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "vue-router",
+    "body",
+    "class"
+  ],
+  "author": "Nikolay Nesov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolaynesov/vue-body-class/issues"
+  },
+  "homepage": "https://github.com/nikolaynesov/vue-body-class#readme"
+}
