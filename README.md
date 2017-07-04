@@ -1,7 +1,7 @@
 # vue-body-class
 Control your page body classes with vue-router easily
 
-##Dependencies
+## Dependencies
 vue.js 2.x
 vue-router 2.x
 
@@ -9,12 +9,12 @@ vue-router 2.x
 
 npm install vue-body-class --save
 
-##Get started
+## Get started
 
 import vbclass from 'vue-body-class'
 Vue.use( vbclass, { router } )
 
-##Set Up classes
+## Set Up classes
 
 Just add bodyClass property to route object in your vue-router routes.
 
@@ -52,7 +52,7 @@ will result in
 class = 'dashboard profile'
 ```
 
-You can overwrite parent classes by adding '!' at the end of the class:
+You can overwrite parent classes by adding '!' at the beginning of the class:
 ```js
 name: 'dashboard',
 path: '/dashboard',
