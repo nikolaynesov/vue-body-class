@@ -5,7 +5,7 @@ Control your page body classes with vue-router easily
 vue.js 2.x
 vue-router 2.x
 
-##Installation
+## Installation
 
 npm install vue-body-class --save
 
@@ -14,7 +14,7 @@ npm install vue-body-class --save
 import vbclass from 'vue-body-class'
 Vue.use( vbclass, { router } )
 
-## Set Up classes
+### Set Up classes
 
 Just add bodyClass property to route object in your vue-router routes.
 
