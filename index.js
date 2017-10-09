@@ -2,62 +2,35 @@ class VueBodyClassController {
 
     init(router) {
         this.bodyClass = document.body.className;
-        this.router    = router
+        this.router    = router;
     }
 
-    set router(router) {
+    set router(router)  {
 
         router.beforeEach((to, from, next) => {
 
             var parent              = router.options.routes;
-            let matched             = [];
+            var matched             = this.parseMatched(to.matched);
             var additionalClassName = "";
 
-            for (let index in to.matched) {
+            //is a home page?
+            if(to.path == '/') {
 
-                let prev = matched.join('/');
-
-                matched.push(to.matched[index].path
-                    .replace(/^\/|\/$/g, '')
-                    .replace(prev, '')
-                    .replace(/^\/|\/$/g, ''));
+                additionalClassName = this.updateClassFromRoute(additionalClassName, to);
 
             }
-
-            if (to.path != '/' && to.path.length > 0 && matched.length > 0) {
+            //not homepage
+            else if (matched.length > 0) {
 
                 for (let index in matched) {
 
-                    let data = parent.children ? parent.children : parent;
-                    let found;
-
-                    found = data.find((o)=> {
-
-                        return o.path.replace(/^\/|\/$/g, '') == matched[index];
-
-                    });
+                    let routes = parent.children ? parent.children : parent;
+                    let found = this.findMatchInRoutesByPath(routes, matched[index]);
 
                     if (found) {
 
                         parent = found;
-
-                        if (found['bodyClass']) {
-
-                            let routeBodyClass = found['bodyClass'].replace(/^!/, '');
-
-                            if (found['bodyClass'].indexOf('!') === 0) {
-
-                                additionalClassName = " " + routeBodyClass;
-
-                            }
-                            else {
-
-                                additionalClassName += " " + routeBodyClass;
-
-                            }
-
-
-                        }
+                        additionalClassName = this.updateClassFromRoute(additionalClassName, found);
 
                     }
 
@@ -70,7 +43,73 @@ class VueBodyClassController {
             next();
 
         })
+
     }
+
+    parseMatched(matchedArray) {
+
+        var matched = [];
+
+        for (let index in matchedArray) {
+
+            let prev = matched.join('/');
+
+            matched.push(
+
+                matchedArray[index].path
+                    .replace(/^\/|\/$/g, '')
+                    .replace(prev, '')
+                    .replace(/^\/|\/$/g, '')
+
+            );
+
+        }
+
+        return matched;
+
+    }
+
+    findMatchInRoutesByPath(routes, matchedItem) {
+
+        return routes.find((o)=> {
+
+            return o.path.replace(/^\/|\/$/g, '') == matchedItem;
+
+        });
+
+    }
+
+    getClassForRoute(route) {
+
+        return route.meta.bodyClass;
+
+    }
+
+    updateClassFromRoute(className, route) {
+
+        var routeClass = this.getClassForRoute(route);
+
+        if (routeClass) {
+
+            let routeBodyClass = routeClass.replace(/^!/, '');
+
+            if (routeClass.indexOf('!') === 0) {
+
+                className = " " + routeBodyClass;
+
+            }
+            else {
+
+                className += " " + routeBodyClass;
+
+            }
+
+        }
+
+        return className;
+
+    }
+
 }
 
 let VueBodyClass = new VueBodyClassController()
