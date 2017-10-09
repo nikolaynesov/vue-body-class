@@ -1,6 +1,6 @@
 {
   "name": "vue-body-class",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control you body classes easily with vue-router",
   "main": "index.js",
   "repository": {
