@@ -1,18 +1,30 @@
 # vue-body-class
-Control your page body classes with vue-router easily
+
+Control your page body classes with vue-router easily:
+
++ add classes to parent and children routes
++ add classes for homepage (v.2)
++ overwrite classes defined in parent routes
++ dynamic routes support
 
 The package uses ES6, so read [this](https://github.com/nikolaynesov/vue-body-class/issues/1) if you are facing with `Unexpected token` issue.
 
 ## Dependencies
-vue.js 2.x
-vue-router 2.x
++ vue.js 2.x
++ vue-router 2.x
 
 ## Installation
 
-npm install vue-body-class --save
+`npm install vue-body-class --save`
 
 ## Get started
 
+```js
+import vbclass from 'vue-body-class'
+Vue.use( vbclass, router )
+```
+
+##### If you are using `v.1`:
 ```js
 import vbclass from 'vue-body-class'
 Vue.use( vbclass, { router } )
@@ -29,7 +41,7 @@ meta: { bodyClass: 'dashboard' },
 ...
 ```
 
-NOTE! for `v.1` use `bodyClass` right inside the route object:
+##### For `v.1` use `bodyClass` right inside the route object:
 
 ```js
 name: 'dashboard',
@@ -65,7 +77,7 @@ will result in
 class = 'dashboard profile'
 ```
 
-You can overwrite parent classes by adding '!' at the beginning of the class:
+You can overwrite parent classes by adding `!` at the beginning of the class:
 ```js
 name: 'dashboard',
 path: '/dashboard',
@@ -102,6 +114,6 @@ will result in
 class = 'profile personal'
 ```
 
-as '!profile' overwrites 'dashboard' class.
+as `!profile` overwrites `dashboard` class.
 
 The plugin will save your original body classes and new classes will be appended.
