@@ -81,7 +81,7 @@ class VueBodyClassController {
 
     getClassForRoute(route) {
 
-        return route.meta.bodyClass;
+        return route.meta ? route.meta.bodyClass : null;
 
     }
 
