@@ -6,8 +6,7 @@ Control your page body classes with vue-router easily:
 + add classes for homepage (v.2)
 + overwrite classes defined in parent routes
 + dynamic routes support
-
-The package uses ES6, so read [this](https://github.com/nikolaynesov/vue-body-class/issues/1) if you are facing with `Unexpected token` issue.
++ written on top of ES6, yet is ES5 safe
 
 ## Dependencies
 + vue.js 2.x

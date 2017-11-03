@@ -2,7 +2,7 @@
   "name": "vue-body-class",
   "version": "2.0.0-beta.1",
   "description": "Control you body classes easily with vue-router",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nikolaynesov/vue-body-class"
@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/nikolaynesov/vue-body-class/issues"
   },
-  "homepage": "https://github.com/nikolaynesov/vue-body-class#readme"
+  "homepage": "https://github.com/nikolaynesov/vue-body-class#readme",
+  "scripts": {
+    "build": "babel source --presets babel-preset-es2015 --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
 }
