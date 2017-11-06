@@ -18,6 +18,8 @@ Control your page body classes with vue-router easily:
 
 ## Get started
 
+After the `router` instance was created with all the routes, use it with `Vue.use` global method to explicitly install the plugin. 
+
 ```js
 import vbclass from 'vue-body-class'
 Vue.use( vbclass, router )
