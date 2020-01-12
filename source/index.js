@@ -38,8 +38,6 @@ export default class VueBodyClass {
 
             }
 
-            console.log(this.bodyClass);
-
             document.body.className = (this.bodyClass + additionalClassName).trim();
 
             next();
