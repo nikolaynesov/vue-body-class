@@ -2,7 +2,7 @@
   "name": "vue-body-class",
   "version": "2.0.0-beta.2",
   "description": "Control you body classes easily with vue-router",
-  "main": "./dist/index.js",
+  "main": "./source/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nikolaynesov/vue-body-class"

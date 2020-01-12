@@ -3,14 +3,14 @@
 Control your page body classes with vue-router easily:
 
 + add classes to parent and children routes
-+ add classes for homepage (v.2)
++ add classes for homepage
 + overwrite classes defined in parent routes
 + dynamic routes support
 + written on top of ES6, yet is ES5 safe
 
 ## Dependencies
 + vue.js 2.x
-+ vue-router 2.x
++ vue-router 3.x
 
 ## Installation
 
@@ -18,18 +18,48 @@ Control your page body classes with vue-router easily:
 
 ## Get started
 
-After the `router` instance was created with all the routes, use it with `Vue.use` global method to explicitly install the plugin. 
+1. Import Vue Body Class
 
 ```js
-import vbclass from 'vue-body-class'
-Vue.use( vbclass, router )
+import VueBodyClass from 'vue-body-class';
+```
+2. Set up routes and Vue Router as described in Vue Router [Installation](https://router.vuejs.org/installation.html) & [Getting Strated](https://router.vuejs.org/guide/) sections.
+
+3. Add Vue Body Class Guard to the Router instance (Important: pass `routes` to the `VueBodyClass` construstor) :
+
+```js
+const vueBodyClass = new VueBodyClass(routes);
+router.beforeEach((to, from, next) => { vueBodyClass.guard(to, next) });
 ```
 
-##### If you are using `v.1`:
+You will end up with something like this:
+
 ```js
-import vbclass from 'vue-body-class'
-Vue.use( vbclass, { router } )
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import VueBodyClass from 'vue-body-class';
+
+Vue.use(VueRouter)
+
+const routes = [
+    //...your routes here
+];
+
+const router = new VueRouter({
+  routes
+});
+
+const vueBodyClass = new VueBodyClass(routes);
+router.beforeEach((to, from, next) => { vueBodyClass.guard(to, next) });
+
+new Vue({
+  router,
+  render: h => h(App),
+}).$mount('#app');
+
 ```
+
+
 
 ### Set Up classes
 
@@ -39,15 +69,6 @@ Just add `bodyClass` to meta property of a route object in your `vue-router` rou
 name: 'dashboard',
 path: '/dashboard',
 meta: { bodyClass: 'dashboard' },
-...
-```
-
-##### For `v.1` use `bodyClass` right inside the route object:
-
-```js
-name: 'dashboard',
-path: '/dashboard',
-bodyClass: 'dashboard',
 ...
 ```
 

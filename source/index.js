@@ -1,15 +1,15 @@
-class VueBodyClassController {
+export default class VueBodyClass {
 
-    init(router) {
+    constructor(routes) {
+
         this.bodyClass = document.body.className;
-        this.router    = router;
+        this.routes = routes;
+
     }
 
-    set router(router)  {
-
-        router.beforeEach((to, from, next) => {
-
-            var parent              = router.options.routes;
+    guard(to, next)  {
+        
+            var parent              = this.routes;
             var matched             = this.parseMatched(to.matched);
             var additionalClassName = "";
 
@@ -38,11 +38,11 @@ class VueBodyClassController {
 
             }
 
+            console.log(this.bodyClass);
+
             document.body.className = (this.bodyClass + additionalClassName).trim();
 
             next();
-
-        })
 
     }
 
@@ -111,13 +111,3 @@ class VueBodyClassController {
     }
 
 }
-
-let VueBodyClass = new VueBodyClassController()
-
-VueBodyClass.install = (Vue, router) => {
-
-    VueBodyClass.init(router);
-
-}
-
-export default VueBodyClass;
