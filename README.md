@@ -16,7 +16,7 @@ Control your page body classes with vue-router easily:
 
 `npm install vue-body-class --save`
 
-## Get started
+## Get started with Vue.js
 
 1. Import Vue Body Class
 
@@ -58,8 +58,6 @@ new Vue({
 }).$mount('#app');
 
 ```
-
-
 
 ### Set Up classes
 
@@ -139,3 +137,9 @@ class = 'profile personal'
 as `!profile` overwrites `dashboard` class.
 
 The plugin will save your original body classes and new classes will be appended.
+
+## Get started with Nuxt.js
+
+Nuxt.js is not supported in current package version, but there are plans to implement the integration in further versions.
+Meanwhile, please use Nuxt.js built in solution, described [here](https://github.com/nuxt/nuxt.js/issues/188). 
+This does not provider same flexibility and accumulating parent route classes functionality, but is useful in most of cases.  
