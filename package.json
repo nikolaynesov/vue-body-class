@@ -1,8 +1,10 @@
 {
   "name": "vue-body-class",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Control you body classes easily with vue-router",
   "main": "./dist/index.js",
+  "types": "./index.d.ts",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/nikolaynesov/vue-body-class"
@@ -15,6 +17,9 @@
     "class"
   ],
   "author": "Nikolay Nesov",
+  "contributors": [
+    "Davey Jacobson <jacobson@epiqengineering.com> (https://daveyjake.dev)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nikolaynesov/vue-body-class/issues"
