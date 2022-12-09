@@ -1,8 +1,9 @@
 {
   "name": "vue-body-class",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Control you body classes easily with vue-router",
   "main": "./dist/index.js",
+  "types": "./source/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/nikolaynesov/vue-body-class"
