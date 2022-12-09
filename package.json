@@ -16,6 +16,9 @@
     "class"
   ],
   "author": "Nikolay Nesov",
+  "contributors": [
+    "Davey Jacobson <jacobson@epiqengineering.com> (https://daveyjake.dev)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nikolaynesov/vue-body-class/issues"
