@@ -4,6 +4,7 @@
   "description": "Control you body classes easily with vue-router",
   "main": "./dist/index.js",
   "types": "./index.d.ts",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/nikolaynesov/vue-body-class"
